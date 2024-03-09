@@ -18,6 +18,13 @@ def tokenize_copy(prompt):
 
     return [from_file, to_file]
 
+def tokenize_install(prompt):
+    pkg_name = ""
+    words = prompt.split(" ")
+    pkg_name = words[len(words)-1]
+    return pkg_name
+
+
 def file_creation(prompt):
     print("Creating file...")
     file_name = tokenize_f(prompt= prompt)
@@ -42,3 +49,29 @@ def copy_file(prompt):
     print("Copying file...")
     from_file,to_file = tokenize_copy(prompt= prompt)
     sb.run("cp {} {}".format(from_file,to_file),shell=True)
+
+def install_pkg(prompt):
+    sys_name = sb.run("uname -a",shell=True,capture_output=True).stdout.decode('utf-8')
+    pkg_name = tokenize_install(prompt= prompt)
+    print("Installing package - {}...".format(pkg_name))
+    if ' debian ' in sys_name.lower():
+        sb.run("sudo apt-get install {}".format(pkg_name),shell=True)
+    if ' arch ' in sys_name.lower():
+        sb.run("sudo pacman -S {}".format(pkg_name),shell=True)
+    if ' fedora ' in sys_name.lower():
+        sb.run("sudo dnf install {}".format(pkg_name),shell=True)
+    else:
+        print("Could not install package. OS not supported.")
+
+def uninstall_pkg(prompt):
+    sys_name = sb.run("uname -a",shell=True,capture_output=True).stdout.decode('utf-8')
+    pkg_name = tokenize_install(prompt= prompt)
+    print("Uninstalling package - {}...".format(pkg_name))
+    if ' debian ' in sys_name.lower():
+        sb.run("sudo apt-get remove {}".format(pkg_name),shell=True)
+    if ' arch ' in sys_name.lower():
+        sb.run("sudo pacman -R {}".format(pkg_name),shell=True)
+    if ' fedora ' in sys_name.lower():
+        sb.run("sudo dnf remove {}".format(pkg_name),shell=True)
+    else:
+        print("Could not uninstall package. OS not supported.")

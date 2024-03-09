@@ -30,5 +30,18 @@
         "responses": ["COPY_FILE"],
         "context_set": ""
     }
+    ,
+    {
+        "tag": "install_pkg",
+        "patterns" : ["install package","install"],
+        "responses": ["INSTALL_PKG"],
+        "context_set": ""
+    },
+    {
+        "tag": "remove_pkg",
+        "patterns" : ["remove package","unistall","remove","unistall package"],
+        "responses": ["UNINSTALL_PKG"],
+        "context_set": ""
+    }
 ]
 }
