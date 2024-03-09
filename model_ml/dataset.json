@@ -1,0 +1,34 @@
+{"intents": [
+    {   
+        "tag": "file_creation",
+        "patterns": ["create a  file named","create file", "create a file", "create a file named", "create a file with the name", "create a file with the name of"],
+        "responses": ["FILE_CREATION"],
+        "context_set": ""
+    },
+    {
+        "tag": "dir_creation",
+        "patterns": ["create a  directory named","create directory", "create a directory", "create a directory named", "create a directory with the name", "create a directory with the name of","create a folder and name it","create a folder and name it as","create folder"],
+        "responses": ["DIR_CREATION"],
+        "context_set": ""
+    },
+    {
+        "tag": "file_deletion",
+        "patterns" : ["remove the file","delete file"],
+        "responses": ["FILE_DELETION"],
+        "context_set": ""
+    },
+    {
+        "tag": "dir_deletion",
+        "patterns" : ["remove directory","remove directory"],
+        "responses": ["DIR_DELETION"],
+        "context_set": ""
+    }
+    ,
+    {
+        "tag": "copy_file",
+        "patterns" : ["copy A to B","copy file _ to _"],
+        "responses": ["COPY_FILE"],
+        "context_set": ""
+    }
+]
+}
