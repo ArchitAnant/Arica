@@ -7,7 +7,7 @@
     },
     {
         "tag": "dir_creation",
-        "patterns": ["create a  directory named","create directory", "create a directory", "create a directory named", "create a directory with the name", "create a directory with the name of","create a folder and name it","create a folder and name it as","create folder"],
+        "patterns": ["create a  directory named","create directory", "create a directory", "create a directory named", "create a directory with the name", "create a directory with the name of","create a folder and name it","create a folder and name it as","create folder","create folder named","create folder with the name"],
         "responses": ["DIR_CREATION"],
         "context_set": ""
     },
@@ -19,27 +19,27 @@
     },
     {
         "tag": "dir_deletion",
-        "patterns" : ["remove directory","remove directory"],
+        "patterns" : ["remove directory","remove directory","delete directory","delete folder","remove folder"],
         "responses": ["DIR_DELETION"],
         "context_set": ""
     }
     ,
     {
         "tag": "copy_file",
-        "patterns" : ["copy A to B","copy file _ to _"],
+        "patterns" : ["copy A to B","copy file _ to _","copy file","copy file named"],
         "responses": ["COPY_FILE"],
         "context_set": ""
     }
     ,
     {
         "tag": "install_pkg",
-        "patterns" : ["install package","install"],
+        "patterns" : ["install package","install","install a package","install a package named"],
         "responses": ["INSTALL_PKG"],
         "context_set": ""
     },
     {
         "tag": "remove_pkg",
-        "patterns" : ["remove package","unistall","remove","unistall package"],
+        "patterns" : ["remove package","unistall","remove","unistall package","remove package named","remove the package named"],
         "responses": ["UNINSTALL_PKG"],
         "context_set": ""
     }
