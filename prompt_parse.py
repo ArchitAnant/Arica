@@ -56,9 +56,9 @@ def install_pkg(prompt):
     print("Installing package - {}...".format(pkg_name))
     if ' debian ' in sys_name.lower():
         sb.run("sudo apt-get install {}".format(pkg_name),shell=True)
-    if ' arch ' in sys_name.lower():
+    elif ' arch ' in sys_name.lower():
         sb.run("sudo pacman -S {}".format(pkg_name),shell=True)
-    if ' fedora ' in sys_name.lower():
+    elif ' fedora ' in sys_name.lower():
         sb.run("sudo dnf install {}".format(pkg_name),shell=True)
     else:
         print("Could not install package. OS not supported.")
@@ -69,9 +69,9 @@ def uninstall_pkg(prompt):
     print("Uninstalling package - {}...".format(pkg_name))
     if ' debian ' in sys_name.lower():
         sb.run("sudo apt-get remove {}".format(pkg_name),shell=True)
-    if ' arch ' in sys_name.lower():
+    elif ' arch ' in sys_name.lower():
         sb.run("sudo pacman -R {}".format(pkg_name),shell=True)
-    if ' fedora ' in sys_name.lower():
+    elif ' fedora ' in sys_name.lower():
         sb.run("sudo dnf remove {}".format(pkg_name),shell=True)
     else:
         print("Could not uninstall package. OS not supported.")

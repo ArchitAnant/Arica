@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 import nltk
+nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 import json
 import pickle
