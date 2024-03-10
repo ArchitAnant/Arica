@@ -18,3 +18,6 @@ elif tag == 'DIR_DELETION':
 
 elif tag == 'COPY_FILE':
     prompt_parse.copy_file(prompt=prompt)
+
+elif tag == 'INSTALL_PKG':
+    prompt_parse.install_pkg(prompt=prompt)
