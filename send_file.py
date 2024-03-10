@@ -26,6 +26,3 @@ def receive_file():
     sb.run("netcat -lnvp {} > {}".format(port_no,file_name),shell=True)
     print("File received successfully")
     # close the netcat connection
-
-
-    

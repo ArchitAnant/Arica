@@ -43,5 +43,19 @@
         "responses": ["UNINSTALL_PKG"],
         "context_set": ""
     }
+    ,
+    {
+        "tag": "send_file",
+        "patterns" : ["send file","send a file"],
+        "responses": ["SEND_FILE"],
+        "context_set": ""
+    }
+    ,
+    {
+        "tag": "recieve_file",
+        "patterns" : ["recieve file","recieve a file"],
+        "responses": ["RECIEVE_FILES"],
+        "context_set": ""
+    }
 ]
 }

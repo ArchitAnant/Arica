@@ -1,5 +1,6 @@
 from load_model import chat as c
 import prompt_parse
+import send_file
 
 prompt = input("Enter your query: ")
 tag = c(prompt)
@@ -21,5 +22,12 @@ elif tag == 'COPY_FILE':
 
 elif tag == 'INSTALL_PKG':
     prompt_parse.install_pkg(prompt=prompt)
+
 elif tag == 'UNINSTALL_PKG':
     prompt_parse.uninstall_pkg(prompt=prompt)
+
+elif tag == 'SEND_FILE':
+    send_file.send_file()
+
+elif tag == 'RECIEVE_FILE':
+    send_file.receive_file()
