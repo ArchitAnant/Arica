@@ -12,10 +12,7 @@ def send_file():
         port_no = "9999"
     #send file over netcat
     sb.run("netcat -w 1 {} {} < {}".format(ip,int(port_no),file_name),shell=True)
-    time.sleep(10)
     print("File sent successfully")
-    # close the netcat connection
-    sb.run("pkill nc",shell=True)
 
 #receive data over netcat
 def receive_file():
@@ -27,7 +24,8 @@ def receive_file():
         port_no = "9999"
     #receive file over netcat
     sb.run("netcat -lnvp {} > {}".format(port_no,file_name),shell=True)
-    time.sleep(10)
     print("File received successfully")
     # close the netcat connection
-    sb.run("pkill nc",shell=True)   
+
+
+    
