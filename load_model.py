@@ -155,8 +155,7 @@ def chat(query):
                 if tg['tag'] == tag:
                     responses = tg['responses']
                     output = random.choice(responses)
-                    if tag == "FILE_CREATION":
-                        output = random.choice(responses)
+                    
         return output
     else:
         return "supposed to be google"

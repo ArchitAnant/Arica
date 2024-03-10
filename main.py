@@ -21,5 +21,5 @@ elif tag == 'COPY_FILE':
 
 elif tag == 'INSTALL_PKG':
     prompt_parse.install_pkg(prompt=prompt)
-elif tag == 'UNISTALL_PKG':
+elif tag == 'UNINSTALL_PKG':
     prompt_parse.uninstall_pkg(prompt=prompt)

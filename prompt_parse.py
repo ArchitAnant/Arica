@@ -75,3 +75,4 @@ def uninstall_pkg(prompt):
         sb.run("sudo dnf remove {}".format(pkg_name),shell=True)
     else:
         print("Could not uninstall package. OS not supported.")
+
