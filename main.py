@@ -1,6 +1,6 @@
 from load_model import chat as c
 import prompt_parse
-import send_file
+import networking
 
 prompt = input("Enter your query: ")
 tag = c(prompt)
@@ -27,7 +27,18 @@ elif tag == 'UNINSTALL_PKG':
     prompt_parse.uninstall_pkg(prompt=prompt)
 
 elif tag == 'SEND_FILE':
-    send_file.send_file()
+    networking.send_file()
 
 elif tag == 'RECIEVE_FILE':
-    send_file.receive_file()
+    networking.receive_file()
+
+elif tag == 'IP_ADDRESS':
+    networking.get_ip()
+
+elif tag == 'SCAN_NETWORK':
+    networking.scan()
+
+elif tag == 'IS_PKG_INSTALLED':
+    networking.check_wrapper(prompt=prompt)
+elif tag == 'CHECK_INTERNET':
+    networking.check_internet()

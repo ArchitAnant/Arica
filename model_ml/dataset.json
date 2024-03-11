@@ -57,5 +57,32 @@
         "responses": ["RECIEVE_FILES"],
         "context_set": ""
     }
+    ,
+    {
+        "tag": "tell_ip",
+        "patterns" : ["what is my ip","tell me my ip","ip address","ip","what is my ip address"],
+        "responses": ["IP_ADDRESS"],
+        "context_set": ""
+    }
+    ,
+    {
+        "tag": "is_package_installed",
+        "patterns" : ["is the package NCD installed","is the package ABC installed","is package ABC installed","is this package _ installed","is the package _ installed"],  
+        "responses": ["IS_PKG_INSTALLED"],
+        "context_set": ""
+    },
+    {
+        "tag" : "scan_network",
+        "patterns" : ["scan network","scan my network","scan my network for devices","scan for devices in my network"],
+        "responses" : ["SCAN_NETWORK"],
+        "context_set": ""
+    }
+    ,
+    {
+        "tag" : "check_internet",
+        "patterns" : ["check internet","check if internet is working","check if internet is working or not","check if internet is working or not"],
+        "responses" : ["CHECK_INTERNET"],
+        "context_set": ""
+    }
 ]
 }
