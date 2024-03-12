@@ -19,4 +19,7 @@ Recive File - NetCat
 IP Address
 ARP Scan
 Check Internet Connection
+List PCI Devices
+List USB Devices
+Display Contents - File
 ```
