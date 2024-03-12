@@ -70,5 +70,3 @@ def check_internet():
         print("Internet is available...")
     else:
         print("Internet is not available...")
-
-check_internet()

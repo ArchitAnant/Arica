@@ -84,5 +84,24 @@
         "responses" : ["CHECK_INTERNET"],
         "context_set": ""
     }
+    ,
+    {
+        "tag" : "pci_devices", 
+        "patterns" : ["list the pci devices","list pci devices","list the pci device connected","list pci devices connected","pci devices"],
+        "responses" : ["PCI_SHOW"],
+        "context_set": ""
+    },
+    {
+        "tag" : "usb_devices", 
+        "patterns" : ["list the usb devices","list usb devices","list the usb device connected","list usb devices connected","usb devices"],
+        "responses" : ["USB_SHOW"],
+        "context_set": ""
+    },
+    {
+        "tag" : "show_file_contents",
+        "patterns" : ["show the contents of the file","show the contents of the file named","show the contents of the file _","what is inside this file"],
+        "responses" : ["SHOW_FILE_CONTENTS"],
+        "context_set": ""
+    }
 ]
 }

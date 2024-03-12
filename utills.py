@@ -76,3 +76,6 @@ def uninstall_pkg(prompt):
     else:
         print("Could not uninstall package. OS not supported.")
 
+def cat_file(prompt):
+    file_name = tokenize_f(prompt= prompt)
+    sb.run("cat {}".format(file_name),shell=True)

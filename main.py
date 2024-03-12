@@ -1,30 +1,31 @@
 from load_model import chat as c
-import prompt_parse
+import utills
 import networking
+import hardware
 
 prompt = input("Enter your query: ")
 tag = c(prompt)
 
 if tag == 'FILE_CREATION':
-    prompt_parse.file_creation(prompt=prompt)
+    utills.file_creation(prompt=prompt)
 
 elif tag == 'DIR_CREATION':
-    prompt_parse.dir_creation(prompt=prompt)
+    utills.dir_creation(prompt=prompt)
 
 elif tag == 'FILE_DELETION':
-    prompt_parse.file_deletion(prompt=prompt)
+    utills.file_deletion(prompt=prompt)
 
 elif tag == 'DIR_DELETION':
-    prompt_parse.dir_deletion(prompt=prompt)
+    utills.dir_deletion(prompt=prompt)
 
 elif tag == 'COPY_FILE':
-    prompt_parse.copy_file(prompt=prompt)
+    utills.copy_file(prompt=prompt)
 
 elif tag == 'INSTALL_PKG':
-    prompt_parse.install_pkg(prompt=prompt)
+    utills.install_pkg(prompt=prompt)
 
 elif tag == 'UNINSTALL_PKG':
-    prompt_parse.uninstall_pkg(prompt=prompt)
+    utills.uninstall_pkg(prompt=prompt)
 
 elif tag == 'SEND_FILE':
     networking.send_file()
@@ -40,5 +41,15 @@ elif tag == 'SCAN_NETWORK':
 
 elif tag == 'IS_PKG_INSTALLED':
     networking.check_wrapper(prompt=prompt)
+
 elif tag == 'CHECK_INTERNET':
     networking.check_internet()
+
+elif tag == 'PCI_SHOW':
+    hardware.list_pci()
+
+elif tag == 'USB_SHOW':
+    hardware.list_usb()
+
+elif tag == 'SHOW_FILE_CONTENTS':
+    utills.cat_file(prompt=prompt)
