@@ -68,7 +68,7 @@ def scan():
 
 def check_internet():
     #check if internet is available
-    code = sb.run("ping -t 2 google.com",shell=True).returncode
+    code = sb.run("ping -w 2 google.com",shell=True).returncode
     if code == 0:
         print("Internet is available...")
     else:
