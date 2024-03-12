@@ -26,10 +26,13 @@ def receive_file():
     print("File received successfully")
     # close the netcat connection
 
+def get_adp():
+    adp = sb.run('ip link show | grep "state UP"',shell=True,capture_output=True).stdout.decode("utf-8").split(": ")
+    return adp[1]
 
 def get_ip():
     #get the ip address of the system
-    ip_r = sb.run('ifconfig en0 | grep "inet "',shell=True,capture_output=True).stdout.decode("utf-8").split("netmask")[0]
+    ip_r = sb.run('ifconfig {} | grep "inet "'.format(get_adp()),shell=True,capture_output=True).stdout.decode("utf-8").split("netmask")[0]
     ip = ip_r.split("inet ")[1]
     print("IP address : ",ip)
     return ip
@@ -55,7 +58,7 @@ def check(package):
 def scan():
     if check("arp-scan"):
         print("Scanning the network for devices...")
-        sb.run("arp-scan -l",shell=True)
+        sb.run("sudo arp-scan -l",shell=True)
         print("Scanning complete..")
     else:
         print("Scanning the network for devices...")
