@@ -22,4 +22,6 @@ Check Internet Connection
 List PCI Devices
 List USB Devices
 Display Contents - File
+List Block Devices
+Compress File
 ```
