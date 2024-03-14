@@ -79,3 +79,18 @@ def uninstall_pkg(prompt):
 def cat_file(prompt):
     file_name = tokenize_f(prompt= prompt)
     sb.run("cat {}".format(file_name),shell=True)
+
+def list_services():
+    print("Listing services...\n Use 'q' to exit.")
+    sb.run("systemctl list-units --type=service",shell=True)
+
+def comporess_file():
+    print("Choose option to compress:\n1 - .txz\n2 - .zip")
+    ch = 0
+    ch = int(input("Enter your choice: "))
+    folder_name = input("Enter the file name to Archive and compress: ")
+    out_file = input("Enter the name of the compressed file: ")
+    if ch == 1:
+        sb.run("tar -cjf {}.txz {}".format(out_file,folder_name),shell=True)
+    elif ch == 2:
+        sb.run("zip -r {}.zip {}".format(out_file,folder_name),shell=True)

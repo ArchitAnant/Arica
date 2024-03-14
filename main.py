@@ -53,3 +53,12 @@ elif tag == 'USB_SHOW':
 
 elif tag == 'SHOW_FILE_CONTENTS':
     utills.cat_file(prompt=prompt)
+
+elif tag == 'BLOCK_DEVICES':
+    hardware.list_blk()
+
+elif tag == 'LIST_SERVICES':
+    utills.list_services()
+
+elif tag == 'COMPRESS_FILE':
+    utills.comporess_file()

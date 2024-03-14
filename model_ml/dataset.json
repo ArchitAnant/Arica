@@ -103,5 +103,19 @@
         "responses" : ["SHOW_FILE_CONTENTS"],
         "context_set": ""
     }
+    ,
+    {
+        "tag" : "block_devices",
+        "patterns" : ["list block devices","list the block devices","list all the block device connected","list sda devices connected","sda devices","list the hard disks connected","list all the hard disks connected"],
+        "responses" : ["BLOCK_DEVICES"],
+        "context_set": ""
+    }
+    ,
+    {
+        "tag" : "compress_file",
+        "patterns" : ["compress file","compress a file"],
+        "responses" : ["COMPRESS_FILE"],
+        "context_set": ""
+    }
 ]
 }

@@ -89,7 +89,7 @@ output_size = len(output[0])
 model = NeuralNet(input_size, hidden_size, output_size)
 
 criterion = nn.MSELoss()
-optimizer = torch.optim.SGD(model.parameters(), lr=1)
+optimizer = torch.optim.SGD(model.parameters(), lr=2)
 
 for epoch in range(10000):
     inputs = torch.Tensor(training).float()
