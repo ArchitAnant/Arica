@@ -1,5 +1,6 @@
 import subprocess as sb
 from nltk.tokenize import word_tokenize
+import os
 
 def tokenize_f(prompt):
     file_name = ""
@@ -51,27 +52,25 @@ def copy_file(prompt):
     sb.run("cp {} {}".format(from_file,to_file),shell=True)
 
 def install_pkg(prompt):
-    sys_name = sb.run("uname -a",shell=True,capture_output=True).stdout.decode('utf-8')
     pkg_name = tokenize_install(prompt= prompt)
     print("Installing package - {}...".format(pkg_name))
-    if ' debian ' in sys_name.lower():
+    if check_sys_info()=='debian' :
         sb.run("sudo apt-get install {}".format(pkg_name),shell=True)
-    elif ' arch ' in sys_name.lower():
+    elif check_sys_info()== 'arch':
         sb.run("sudo pacman -S {}".format(pkg_name),shell=True)
-    elif ' fedora ' in sys_name.lower():
+    elif check_sys_info()== 'fedora':
         sb.run("sudo dnf install {}".format(pkg_name),shell=True)
     else:
         print("Could not install package. OS not supported.")
 
 def uninstall_pkg(prompt):
-    sys_name = sb.run("uname -a",shell=True,capture_output=True).stdout.decode('utf-8')
     pkg_name = tokenize_install(prompt= prompt)
     print("Uninstalling package - {}...".format(pkg_name))
-    if ' debian ' in sys_name.lower():
+    if  check_sys_info()=='debian' :
         sb.run("sudo apt-get remove {}".format(pkg_name),shell=True)
-    elif ' arch ' in sys_name.lower():
+    elif check_sys_info()== 'arch':
         sb.run("sudo pacman -R {}".format(pkg_name),shell=True)
-    elif ' fedora ' in sys_name.lower():
+    elif check_sys_info()== 'fedora':
         sb.run("sudo dnf remove {}".format(pkg_name),shell=True)
     else:
         print("Could not uninstall package. OS not supported.")
@@ -94,3 +93,16 @@ def comporess_file():
         sb.run("tar -cjf {}.txz {}".format(out_file,folder_name),shell=True)
     elif ch == 2:
         sb.run("zip -r {}.zip {}".format(out_file,folder_name),shell=True)
+
+
+def check_sys_info():
+    try:
+        if os.path.isfile('/etc/arch-release'):
+            return "arch"
+        elif os.path.isfile('/etc/debian-release'):
+            return "debian"
+        elif os.path.isfile('/etc/fedora-release'):
+            return "fedora"
+    except Exception as e :
+        print("Error: ",e)
+        return "unknown"

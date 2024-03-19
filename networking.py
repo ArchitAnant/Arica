@@ -1,4 +1,5 @@
 import subprocess as sb
+import utills as ut
 
 #send data over netcat
 def send_file():
@@ -68,7 +69,11 @@ def scan():
 
 def check_internet():
     #check if internet is available
-    code = sb.run("ping -w 2 google.com",shell=True).returncode
+    if ut.check_sys_info() == 'debian':
+        code = sb.run("ping -t 2 google.com",shell=True).returncode
+    else:
+        code = sb.run("ping -w 2 google.com",shell=True).returncode
+        
     if code == 0:
         print("Internet is available...")
     else:

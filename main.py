@@ -30,7 +30,7 @@ elif tag == 'UNINSTALL_PKG':
 elif tag == 'SEND_FILE':
     networking.send_file()
 
-elif tag == 'RECIEVE_FILE':
+elif tag == 'RECIEVE_FILES':
     networking.receive_file()
 
 elif tag == 'IP_ADDRESS':
