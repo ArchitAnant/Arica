@@ -109,6 +109,14 @@ def change_mac_add():
 def reset_mac_add():
     adp = get_adp()
     print("Resetting MAC address...")
-    sb.run("sudo ip link set dev {} down".format(adp),shell=True)
-    sb.run("sudo macchanger {} -p".format(adp),shell=True)
-    sb.run("sudo ip link set dev {} up".format(adp),shell=True)
+    if ut.check_sys_info() == 'arch':
+        sb.run("sudo ip link set dev {} down".format(adp),shell=True)
+        sb.run("sudo macchanger {} -p".format(adp),shell=True)
+        sb.run("sudo ip link set dev {} up".format(adp),shell=True)
+
+    elif ut.check_sys_info() == "debian":
+        sb.run("sudo ifconfig {} down".format(adp),shell=True)
+        sb.run("sudo macchanger {} -p".format(adp),shell=True)
+        sb.run("sudo ifconfig {} up".format(adp),shell=True)
+    
+    print("MAC address set to original")
