@@ -33,8 +33,13 @@ def get_adp():
 
 def get_ip():
     #get the ip address of the system
-    ip_r = sb.run('ifconfig {} | grep "inet "'.format(get_adp()),shell=True,capture_output=True).stdout.decode("utf-8").split("netmask")[0]
-    ip = ip_r.split("inet ")[1]
+    if ut.check_sys_info() == 'debian':
+        ip_r = sb.run('ifconfig {} | grep "inet "'.format(get_adp()),shell=True,capture_output=True).stdout.decode("utf-8").split("netmask")[0]
+        ip = ip_r.split("inet ")[1]
+    elif ut.check_sys_info() == 'arch':
+        ip_r = sb.run('ip addr show {} | grep "inet "'.format(get_adp()),shell=True,capture_output=True).stdout.decode("utf-8").split("brd")[0]
+        ip_t = ip_r.split("inet ")[1]
+        ip = ip_t.split("/")[0]
     print("IP address : ",ip)
     return ip
 
