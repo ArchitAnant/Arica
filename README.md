@@ -1,5 +1,7 @@
 # Arica
 Use AI with the ever powerfull Linux terminal
+
+>The Model uses a simple PyTorch chatbot. You can you natural language to give commands but they are laid out in a specific pattern, better consult `model_ml/dataset.json` for best usage!
 ## Requirements
 ```
 - Pytorch 
