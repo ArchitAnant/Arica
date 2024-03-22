@@ -83,3 +83,29 @@ def check_internet():
         print("Internet is available...")
     else:
         print("Internet is not available...")
+
+
+def change_mac_add():
+    print("Changing MAC address...")
+    if ut.check_sys_info() == 'arch':
+        if not check("macchanger"):
+            print("Installing macchanger...")
+            sb.run("sudo pacman -S macchanger",shell=True)
+        sb.run("sudo ip link set dev {} down".format(get_adp()),shell=True)
+        sb.run("sudo macchanger -r {}".format(get_adp()),shell=True)
+        sb.run("sudo ip link set dev {} up".format(get_adp()),shell=True)
+
+    elif ut.check_sys_info() == "debian":
+        if not check("macchanger"):
+            print("Installing macchanger...")
+            sb.run("sudo apt-get install macchanger",shell=True)
+        sb.run("sudo ifconfig {} down".format(get_adp()),shell=True)
+        sb.run("sudo macchanger -r {}".format(get_adp()),shell=True)
+        sb.run("sudo ifconfig {} up".format(get_adp()),shell=True)
+
+    print("MAC address changed successfully")
+
+def reset_mac_add():
+    print("Resetting MAC address...")
+    sb.run("sudo ifconfig {} down".format(get_adp()),shell=True)
+    sb.run("sudo ifconfig {} up".format(get_adp()),shell=True)
