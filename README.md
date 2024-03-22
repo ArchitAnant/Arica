@@ -31,8 +31,10 @@ Change MAC Address
 ## Usage
 ```
 python main.py -q="<YOUR_QUERY>"
+```
 
-#example
+Example
+```
 python main.py -q="list all the pci devices"
 python main.py -q="check if internet is working"
 python main.py -q="install the package htop"
