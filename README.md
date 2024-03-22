@@ -23,5 +23,7 @@ List PCI Devices
 List USB Devices
 Display Contents - File
 List Block Devices
+List Running Services
 Compress File
+Change MAC Address
 ```
