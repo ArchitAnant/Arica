@@ -64,6 +64,12 @@ def main(args):
     elif tag == 'COMPRESS_FILE':
         utills.comporess_file()
 
+    elif tag == 'CHANGE_MAC':
+        networking.change_mac_add()
+    
+    elif tag == 'RESET_MAC':
+        networking.reset_mac_add()
+
 
 if __name__ == '__main__':
     parser = ArgumentParser()

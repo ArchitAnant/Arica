@@ -108,4 +108,5 @@ def change_mac_add():
 def reset_mac_add():
     print("Resetting MAC address...")
     sb.run("sudo ifconfig {} down".format(get_adp()),shell=True)
+    sb.run("sudo macchanger {} -p".format(get_adp()),shell=True)
     sb.run("sudo ifconfig {} up".format(get_adp()),shell=True)
