@@ -86,27 +86,29 @@ def check_internet():
 
 
 def change_mac_add():
+    adp = get_adp()
     print("Changing MAC address...")
     if ut.check_sys_info() == 'arch':
         if not check("macchanger"):
             print("Installing macchanger...")
             sb.run("sudo pacman -S macchanger",shell=True)
-        sb.run("sudo ip link set dev {} down".format(get_adp()),shell=True)
-        sb.run("sudo macchanger -r {}".format(get_adp()),shell=True)
-        sb.run("sudo ip link set dev {} up".format(get_adp()),shell=True)
+        sb.run("sudo ip link set dev {} down".format(adp),shell=True)
+        sb.run("sudo macchanger -r {}".format(adp),shell=True)
+        sb.run("sudo ip link set dev {} up".format(adp),shell=True)
 
     elif ut.check_sys_info() == "debian":
         if not check("macchanger"):
             print("Installing macchanger...")
             sb.run("sudo apt-get install macchanger",shell=True)
-        sb.run("sudo ifconfig {} down".format(get_adp()),shell=True)
-        sb.run("sudo macchanger -r {}".format(get_adp()),shell=True)
-        sb.run("sudo ifconfig {} up".format(get_adp()),shell=True)
+        sb.run("sudo ifconfig {} down".format(adp),shell=True)
+        sb.run("sudo macchanger -r {}".format(adp),shell=True)
+        sb.run("sudo ifconfig {} up".format(adp),shell=True)
 
     print("MAC address changed successfully")
 
 def reset_mac_add():
+    adp = get_adp()
     print("Resetting MAC address...")
-    sb.run("sudo ifconfig {} down".format(get_adp()),shell=True)
-    sb.run("sudo macchanger {} -p".format(get_adp()),shell=True)
-    sb.run("sudo ifconfig {} up".format(get_adp()),shell=True)
+    sb.run("sudo ifconfig {} down".format(adp),shell=True)
+    sb.run("sudo macchanger {} -p".format(adp),shell=True)
+    sb.run("sudo ifconfig {} up".format(adp),shell=True)
