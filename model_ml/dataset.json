@@ -117,5 +117,12 @@
         "responses" : ["COMPRESS_FILE"],
         "context_set": ""
     }
+    ,
+    {
+        "tag" : "list_services",
+        "patterns" : ["list services","list all the services","list all the services running","list all the services installed","what services are running"],
+        "responses" : ["LIST_SERVICES"],
+        "context_set": ""
+    }
 ]
 }

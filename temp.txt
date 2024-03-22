@@ -1,1 +1,0 @@
-inet 192.168.131.70/24 brd 192.168.131.255 scope global dynamic noprefixroute wlp0s20f0u2

@@ -39,7 +39,7 @@ def get_ip():
     elif ut.check_sys_info() == 'arch':
         ip_r = sb.run('ip addr show {} | grep "inet "'.format(get_adp()),shell=True,capture_output=True).stdout.decode("utf-8").split("brd")[0]
         ip_t = ip_r.split("inet ")[1]
-        ip = ip_t.split("/")[0]
+        ip = ip_t
     print("IP address : ",ip)
     return ip
 
