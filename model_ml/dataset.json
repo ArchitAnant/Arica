@@ -124,5 +124,19 @@
         "responses" : ["LIST_SERVICES"],
         "context_set": ""
     }
+    ,
+    {
+        "tag" : "change_mac",
+        "patterns" : ["change my mac address","change mac address","randomize my mac address","randomize mac address"],
+        "responses" : ["CHANGE_MAC"],
+        "context_set": ""
+    }
+    ,
+    {
+        "tag" : "reset_mac",
+        "patterns" : ["reset my mac address","reset mac address","reset the mac address"],
+        "responses" : ["RESET_MAC"],
+        "context_set": ""
+    }
 ]
 }
